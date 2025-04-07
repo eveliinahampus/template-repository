@@ -12,6 +12,7 @@ npm init -y
 npm install express cors dotenv @supabase/supabase-js
 npm install -D typescript ts-node nodemon @types/node @types/express @types/cors
 `
+
 `
 echo "Setting up TypeScript..."
 cat <<EOT > tsconfig.json
@@ -26,6 +27,7 @@ cat <<EOT > tsconfig.json
 }
 EOT
 `
+
 `
 mkdir src
 touch src/index.ts
@@ -53,14 +55,16 @@ app.listen(port, () => {
 });
 EOT
 `
+
 `
 touch .env
 cat <<EOT > .env
 SUPABASE_URL=
 SUPABASE_KEY=
 EOT
-´´´
-´´´
+`
+
+`
 echo "Setting up Nodemon..."
 cat <<EOT > package.json
 {
@@ -71,7 +75,9 @@ cat <<EOT > package.json
 }
 EOT
 `
+
 # Initialize frontend
+
 `
 cd ../frontend
 echo "Initializing frontend..."
@@ -81,6 +87,7 @@ npm install @supabase/supabase-js
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 `
+
 `
 cat <<EOT > tailwind.config.ts
 import type { Config } from 'tailwindcss';
@@ -99,6 +106,7 @@ const config: Config = {
 export default config;
 EOT
 `
+
 `
 cat <<EOT > src/main.tsx
 import React from 'react';
@@ -113,6 +121,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 );
 EOT
 `
+
 `
 cat <<EOT > src/App.tsx
 import { createClient } from '@supabase/supabase-js';
@@ -130,6 +139,7 @@ function App() {
 export default App;
 EOT
 `
+
 `
 touch .env
 cat <<EOT > .env
@@ -137,6 +147,7 @@ VITE_SUPABASE_URL=
 VITE_SUPABASE_KEY=
 EOT
 `
+
 `
 # Final instructions
 echo "Setup complete! To start the project, run:"
